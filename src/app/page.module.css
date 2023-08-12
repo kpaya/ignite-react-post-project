@@ -1,4 +1,7 @@
 .wrapper {
-  width: 100%;
-  background-color: var(--green-500);
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 256px 1fr;
+  align-items: flex-start;
+  gap: 2rem;
 }
