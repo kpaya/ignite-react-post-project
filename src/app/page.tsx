@@ -10,6 +10,7 @@ export default function Home() {
 				<Sidebar />
 				<main>
 					<Post />
+					<Post />
 				</main>
 			</div>
 		</>
