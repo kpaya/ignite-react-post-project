@@ -12,18 +12,36 @@
 }
 
 .answerBoxContainer header{
-    align-items: start !important;
+    justify-content: space-between;
+    align-items: flex-start !important;
+}
+
+.answerBoxContainer header svg{
+    color: var(--gray-400)
+    
+}
+
+.answerBoxContainer header svg:hover{
+    color: var(--red-500)
+    
 }
 
 .answerBoxTitle{
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
 }
 
 .answerBoxTitle strong{
-    font-size: 1rem;
+    font-size: 0.875rem;
     font-weight: bold;
+    line-height: 1.6;
+    
+}
+
+.answerBoxTitle span{
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: var(--gray-400);
     
 }
 
@@ -31,8 +49,8 @@
     margin-top: 1rem;
     font-size: 0.9rem;
     font-weight: 1.6;
+    color: var(--gray-300);
 }
-
 
 .answerBox > footer{
     margin-top: 1rem;
@@ -40,11 +58,23 @@
 
 .answerBox > footer button{
     display: flex;
-    flex-direction: row;
     align-items: center;
-    text-decoration: none;
-    cursor: pointer;
     background: transparent;
-    border: none;
+    cursor: pointer;
+    border: 0;
     color: var(--gray-400);
+    border-radius: 2px;
+}
+
+.answerBox > footer button:hover{
+    color: var(--green-500);
+}
+
+.answerBox > footer button svg{
+    margin-right: 0.5rem;
+}
+
+.answerBox > footer button span::before{
+    content: "\2022";
+    padding: 0 0.25rem;
 }

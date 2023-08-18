@@ -1,5 +1,5 @@
 "use client"
-import { Trash, HandsClapping } from "phosphor-react";
+import { Trash, ThumbsUp } from "phosphor-react";
 import { AvatarImage } from "./AvatarImage";
 import styles from "./Comment.module.css";
 
@@ -22,8 +22,8 @@ export function Comment() {
                 </div>
                 <footer>
                     <button>
-                        <HandsClapping size={20} cursor="pointer" />
-                        Aplaudir{"  "}<span>  20</span>
+                        <ThumbsUp size={20} />
+                        Aplaudir<span>20</span>
                     </button>
                 </footer>
             </div>
