@@ -52,18 +52,18 @@
 
 /* Form */
 
-.post form {
+.commentForm {
     width: 100%;
     border-top: 1px solid var(--gray-600);
     padding-top: 1rem;
 }
 
-.post form strong {
+.commentForm strong {
     line-height: 1.6;
     color: var(--white);
 }
 
-.post form textarea {
+.commentForm textarea {
     width: 100%;
     height: 6rem;
     margin-top: 1rem;
@@ -76,11 +76,11 @@
     color: var(--gray-100);
 }
 
-.post form textarea:focus-visible {
+.commentForm textarea:focus-visible {
     outline: var(--white);
 }
 
-.post form button {
+.commentForm button {
     padding: 1rem 1.5rem;
     border-radius: 8px;
     margin-top: 1rem;
@@ -92,6 +92,16 @@
     transition: 0.2s background;
 }
 
-.post form button:hover {
+.commentForm footer {
+    visibility: hidden;
+    max-height: 0;
+}
+
+.commentForm:focus-within footer{
+    visibility: visible;
+    max-height: none;
+}
+
+.commentForm button:hover {
     background: var(--green-300);
 }

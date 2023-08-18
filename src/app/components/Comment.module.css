@@ -1,0 +1,50 @@
+.comment{
+    display: flex;
+    margin-top: 1rem;
+    flex-direction: row;
+    gap: 0.875rem;
+}
+
+.answerBoxContainer {
+    border-radius: 8px;
+    background: var(--gray-700);
+    padding: 10px;
+}
+
+.answerBoxContainer header{
+    align-items: start !important;
+}
+
+.answerBoxTitle{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.answerBoxTitle strong{
+    font-size: 1rem;
+    font-weight: bold;
+    
+}
+
+.answerContent{
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-weight: 1.6;
+}
+
+
+.answerBox > footer{
+    margin-top: 1rem;
+}
+
+.answerBox > footer button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: var(--gray-400);
+}

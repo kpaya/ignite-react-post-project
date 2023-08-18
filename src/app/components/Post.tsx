@@ -1,5 +1,6 @@
 "use client"
 import { AvatarImage } from "./AvatarImage";
+import { Comment } from "./Comment";
 import styles from "./Post.module.css";
 
 export function Post() {
@@ -24,14 +25,18 @@ export function Post() {
                     </p>
                 </div>
 
-                <form>
+                <form className={styles.commentForm}>
                     <strong>Deixe seu feedback</strong>
 
                     <textarea name="feedback" placeholder="Deixe seu comentário"></textarea>
-                    <button type="submit" onClick={(event) => {
-                        event.preventDefault();
-                    }}>Comentar</button>
+
+                    <footer>
+                        <button type="submit" onClick={(event) => {
+                            event.preventDefault();
+                        }}>Comentar</button>
+                    </footer>
                 </form>
+                <Comment />
             </article>
         </>
     )
