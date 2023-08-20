@@ -2,26 +2,27 @@
 import { AvatarImage } from "./AvatarImage";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
+import { IComment} from "../page"
 
-export function Post() {
+export function Post({author, avatarUrl, role, comment, createdAt, commentList}: {author: string, avatarUrl: string, role: string, comment: string, createdAt: string, commentList: Array<IComment>}) {
 
     return (
         <>
             <article className={styles.post}>
                 <header>
                     <div className={styles.author}>
-                        <AvatarImage src='https://github.com/kpaya.png' heightSize='3rem' widthSize='3rem' />
+                        <AvatarImage src={avatarUrl} heightSize='3rem' widthSize='3rem' />
                         <div className={styles.authorInfo}>
-                            <strong>Kpaya</strong>
-                            <span>Software Engineering</span>
+                            <strong>{author}</strong>
+                            <span>{role}</span>
                         </div>
                     </div>
-                    <time title="13 de Agosto às 15:33" dateTime="2023-08-13 15:33:24">Publicado a 1h</time>
+                    <time title="13 de Agosto às 15:33" dateTime={createdAt}>Publicado a 1h</time>
                 </header>
 
                 <div className={styles.content}>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed fuga esse, labore veniam qui necessitatibus in? Optio repudiandae quaerat praesentium tempore temporibus doloremque ipsam fugiat in dolores, qui, labore facere?
+                        {comment}
                     </p>
                 </div>
 
@@ -36,7 +37,12 @@ export function Post() {
                         }}>Comentar</button>
                     </footer>
                 </form>
-                <Comment />
+                
+                {commentList.map(comment => {
+                    // eslint-disable-next-line react/jsx-key
+                    return <Comment author={comment.author} avatarUrl={comment.avatarUrl} content={comment.comment}/>
+                })}
+                
             </article>
         </>
     )
