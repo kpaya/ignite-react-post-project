@@ -3,8 +3,43 @@ import { AvatarImage } from "./AvatarImage";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
 import { IComment} from "../page"
+import { FormEventHandler, useState } from "react";
 
 export function Post({author, avatarUrl, role, comment, createdAt, commentList}: {author: string, avatarUrl: string, role: string, comment: string, createdAt: string, commentList: Array<IComment>}) {
+    const [textAreaField, setTextAreaField] = useState("");
+    const [commentListState, setCommentListState] = useState(commentList);
+
+    function handleCommentSubmit(event: React.FormEvent<HTMLFormElement>){
+        event.preventDefault();
+
+        let commentField = event.target.comment;
+
+        if (commentField.value === "") {
+            return;
+        }
+
+        setCommentListState([...commentListState, {
+            id: commentListState.length + 1,
+            author: "Kpaya",
+            avatarUrl: "https://github.com/kpaya.png",
+            role: "Desenvolvedor Full-stack",
+            comment: textAreaField,
+            createdAt: "2021-08-13 15:33:00"
+        }]);
+        setTextAreaField("");
+    }
+
+    function handleNewCommentText(){
+        setTextAreaField(event.target.value);
+    }
+
+    function deleteComment(commentId: number) {
+        const newCommentList = commentListState.filter(comment => {
+            return comment.id !== commentId;
+        })
+        setCommentListState(newCommentList);
+    }
+
 
     return (
         <>
@@ -26,21 +61,19 @@ export function Post({author, avatarUrl, role, comment, createdAt, commentList}:
                     </p>
                 </div>
 
-                <form className={styles.commentForm}>
+                <form className={styles.commentForm} onSubmit={handleCommentSubmit}>
                     <strong>Deixe seu feedback</strong>
 
-                    <textarea name="feedback" placeholder="Deixe seu comentário"></textarea>
+                    <textarea value={textAreaField} onChange={handleNewCommentText} name="comment" placeholder="Deixe seu comentário"></textarea>
 
                     <footer>
-                        <button type="submit" onClick={(event) => {
-                            event.preventDefault();
-                        }}>Comentar</button>
+                        <button type="submit">Comentar</button>
                     </footer>
                 </form>
                 
-                {commentList.map(comment => {
+                {commentListState.map(comment => {
                     // eslint-disable-next-line react/jsx-key
-                    return <Comment author={comment.author} avatarUrl={comment.avatarUrl} content={comment.comment}/>
+                    return <Comment id={comment.id} author={comment.author} avatarUrl={comment.avatarUrl} content={comment.comment} onDeleteComment={deleteComment}/>
                 })}
                 
             </article>

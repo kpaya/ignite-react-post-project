@@ -52,6 +52,10 @@
     color: var(--gray-300);
 }
 
+.answerBox{
+    width: 100%;
+}
+
 .answerBox > footer{
     margin-top: 1rem;
 }

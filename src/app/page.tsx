@@ -3,6 +3,7 @@ import { Sidebar } from "./components/Sidebar"
 import styles from "./page.module.css"
 
 interface IPost {
+	id: number,
 	author: string,
 	avatarUrl: string,
 	role: string,
@@ -11,6 +12,7 @@ interface IPost {
 	commentList: Array<IComment>
 }
 export interface IComment {
+	id: number,
 	author: string,
 	avatarUrl: string,
 	role: string,
@@ -22,22 +24,16 @@ export interface IComment {
 
 const listaPost: Array<IPost> = [
 	{
+		id: 1,
 		author: "Kpaya",
 		role: "Desenvolvedor Full-stack",
 		avatarUrl: "https://github.com/kpaya.png",
 		comment: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur voluptatum at et, sint laboriosam aliquam! Exercitationem architecto laboriosam autem accusantium mollitia soluta repudiandae, id doloribus, quaerat sequi, eos quia obcaecati.",
 		createdAt: "2021-08-13 15:33:00",
-		commentList: [
-			{
-				author: "Google",
-				avatarUrl: "https://github.com/google.png",
-				role: "Desenvolvedor Front-end",
-				comment: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur voluptatum at et, sint laboriosam aliquam! Exercitationem architecto laboriosam autem accusantium mollitia soluta repudiandae, id doloribus, quaerat sequi, eos quia obcaecati.",
-				createdAt: "2021-08-13 15:33:00"
-			}
-		]
+		commentList: []
 	},
 	{
+		id: 2,
 		author: "Microsoft",
 		avatarUrl: "https://github.com/microsoft.png",
 		role: "Desenvolvedor Back-end",
